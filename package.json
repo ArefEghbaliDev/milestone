@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-template",
+  "name": "milestone",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.21.15",
     "@types/node": "20.4.2",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.7",
+    "formik": "^2.4.2",
     "next": "13.4.9",
+    "prisma": "^5.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
     "react-query": "^3.39.3",
     "typescript": "5.1.6"
   },
