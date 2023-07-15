@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { ComponentProps } from 'react';
+import { MoonLoader } from 'react-spinners';
 
 type TButtonProps = ComponentProps<'button'> & {
     isLoading?: boolean;
@@ -59,6 +60,7 @@ export default function Button({ type, onClick, disabled, className, isLoading, 
                 border: variant === 'outline',
             })}
         >
+            {isLoading && <MoonLoader size={16} color="white" className="mr-3" />}
             {children}
         </button>
     );
