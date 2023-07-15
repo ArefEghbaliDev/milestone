@@ -21,7 +21,7 @@ export default function TextField({ name, value, onChange, placeholder, label, e
                     name={name}
                     value={value}
                     onChange={onChange}
-                    className="flex-1 rounded px-5 py-3 outline-none focus:outline-none"
+                    className="flex-1 rounded px-5 py-3 outline-none focus:outline-none text-sm"
                 />
             </div>
             {error && <span className="mt-1 text-sm text-rose-500">{error}</span>}
