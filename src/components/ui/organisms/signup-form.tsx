@@ -5,7 +5,7 @@ import Button from '../atoms/button';
 import useSignupForm from 'src/hooks/forms/useSignupForm';
 
 export default function SignupForm() {
-    const { formik } = useSignupForm();
+    const { formik, isLoading } = useSignupForm();
 
     return (
         <div className="flex flex-col items-stretch justify-start auth-form">
@@ -52,7 +52,7 @@ export default function SignupForm() {
                 />
             </div>
             <div className="mt-5">
-                <Button type="button" variant="contained" color="primary" className="w-full" onClick={formik.submitForm}>
+                <Button type="button" variant="contained" color="primary" className="w-full" onClick={formik.submitForm} isLoading={isLoading}>
                     Create Account
                 </Button>
             </div>
