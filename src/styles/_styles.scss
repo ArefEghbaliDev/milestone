@@ -1,0 +1,12 @@
+.auth-template {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 32px 1fr;
+    grid-gap: 40px;
+    align-items: center;
+}
+
+.auth-form {
+    width: 320px;
+}
