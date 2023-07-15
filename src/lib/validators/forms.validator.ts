@@ -5,3 +5,8 @@ export const signupValidation = object({
     email: string().email("Invalid email address").required("Email is required!"),
     password: string().required("Password is required!").min(8,"Too Short").max(24,"Too Long")
 });
+
+export const loginValidation = object({
+    email: string().email("Invalid email address").required("Email is required!"),
+    password: string().required("Password is required!").min(8,"Too Short").max(24,"Too Long")
+});
