@@ -11,9 +11,12 @@ export default function TextField({ name, value, onChange, placeholder, label, e
         <div className="flex flex-col items-start justify-start">
             {label && <label className="font-medium text-sm mb-1">{label}</label>}
             <div
-                className={clsx('flex items-center justify-between w-full rounded border border-gray-200 focus-within:border-primary-500', {
-                    'border-rose-500': error,
-                })}
+                className={clsx(
+                    'flex items-center justify-between w-full bg-dark-100 rounded focus-within:border-primary-500 transition-colors duration-150',
+                    {
+                        'border-rose-500': error,
+                    },
+                )}
             >
                 <input
                     type={type}
@@ -21,7 +24,7 @@ export default function TextField({ name, value, onChange, placeholder, label, e
                     name={name}
                     value={value}
                     onChange={onChange}
-                    className="flex-1 rounded px-5 py-3 outline-none focus:outline-none text-sm"
+                    className="flex-1 rounded px-5 py-3 outline-none focus:outline-none text-sm bg-transparent"
                 />
             </div>
             {error && <span className="mt-1 text-sm text-rose-500">{error}</span>}

@@ -36,7 +36,7 @@ export default function Button({ type, onClick, disabled, className, isLoading, 
         outline: {
             primary: 'bg-transparent border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white-500',
             secondary: 'bg-transparent border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white-500',
-            default: 'bg-transparent border-gray-400 text-dark-500 hover:bg-gray-400 hover:text-dark-500',
+            default: 'bg-transparent border-gray-400 text-powder-500 hover:bg-gray-400 hover:text-dark-500',
             warning: 'bg-transparent border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-dark-500',
             danger: 'bg-transparent border-rose-500 text-rose-500 hover:bg-rose-500 hover:text-dark-500',
         },
