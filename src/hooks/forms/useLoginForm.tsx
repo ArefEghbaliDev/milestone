@@ -2,9 +2,9 @@ import { useMutation } from '@tanstack/react-query';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
-import { loginUserMutation, signupUserMutation } from 'src/lib/react-query/mutations/auth.mut';
+import { loginUserMutation } from 'src/lib/react-query/mutations/auth.mut';
 import { loginValidation, signupValidation } from 'src/lib/validators/forms.validator';
-import { IUserLogin, IUserSignup } from 'src/models/user.model';
+import { UserLogin, UserSignup } from 'src/models/user.model';
 
 export default function useLoginForm() {
     const router = useRouter();
@@ -28,7 +28,7 @@ export default function useLoginForm() {
         },
     });
 
-    const initializeValues: IUserLogin = {
+    const initializeValues: UserLogin = {
         email: '',
         password: '',
     };

@@ -23,9 +23,9 @@ module.exports = {
                     500: '#FFFDF7',
                 },
             },
-            maxWidth: {
-                container: '90%',
-            },
+        },
+        maxWidth: {
+            container: '90%',
         },
         borderRadius: {
             DEFAULT: '8px',

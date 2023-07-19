@@ -1,20 +1,20 @@
-interface IBaseUser {
+interface BaseUser {
     fullname: string;
     avatar: string | null;
     email: string;
     account_type: string;
 }
 
-export interface IUserSignup extends IBaseUser {
+export interface UserSignup extends BaseUser {
     password: string;
 }
 
-export interface IUserLogin {
+export interface UserLogin {
     email: string;
     password: string;
 }
 
-export interface IUser extends IBaseUser {
+export interface User extends BaseUser {
     id: string;
     created_at: string;
 }

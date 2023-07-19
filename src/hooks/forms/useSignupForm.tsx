@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import { signupUserMutation } from 'src/lib/react-query/mutations/auth.mut';
 import { signupValidation } from 'src/lib/validators/forms.validator';
-import { IUserSignup } from 'src/models/user.model';
+import { UserSignup } from 'src/models/user.model';
 
 export default function useSignupForm() {
     const router = useRouter();
@@ -28,7 +28,7 @@ export default function useSignupForm() {
         },
     });
 
-    const initializeValues: IUserSignup = {
+    const initializeValues: UserSignup = {
         fullname: '',
         email: '',
         password: '',

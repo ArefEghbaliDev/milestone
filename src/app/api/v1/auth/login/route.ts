@@ -1,10 +1,10 @@
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { NextRequest,NextResponse } from "next/server";
-import { IUserLogin } from "src/models/user.model";
+import { UserLogin } from "src/models/user.model";
 import { cookies } from "next/headers";
 
 export const POST = async (request: NextRequest): Promise<NextResponse> => {
-    const body: IUserLogin = await request.json();
+    const body: UserLogin = await request.json();
 
     const supabase = createRouteHandlerClient({ cookies });
 
