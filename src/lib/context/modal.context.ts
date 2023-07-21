@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext } from "react";
 
 export type Modals = "create-project";
@@ -8,8 +10,7 @@ export type Modal<T = any> = {
 }
 
 type ModalContext = {
-    modalName: Modals;
-    showModal: (modalName: Modals) => void;
+    showModal: (modal: Modal) => void;
     closeModal: () => void;
 }
 

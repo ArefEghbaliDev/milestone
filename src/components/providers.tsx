@@ -6,12 +6,13 @@ import { queryClient } from 'src/lib/react-query';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ModalWrapper from './modal-wrapper';
 
 export default function Providers({ children }: ComponentProps<'div'>) {
     return (
         <QueryClientProvider client={queryClient}>
             <ToastContainer />
-            {children}
+            <ModalWrapper>{children}</ModalWrapper>
         </QueryClientProvider>
     );
 }

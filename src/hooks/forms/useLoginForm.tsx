@@ -3,8 +3,8 @@ import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import { loginUserMutation } from 'src/lib/react-query/mutations/auth.mut';
-import { loginValidation, signupValidation } from 'src/lib/validators/forms.validator';
-import { UserLogin, UserSignup } from 'src/models/user.model';
+import { loginValidation } from 'src/lib/validators/forms.validator';
+import { UserLogin } from 'src/models/user.model';
 
 export default function useLoginForm() {
     const router = useRouter();

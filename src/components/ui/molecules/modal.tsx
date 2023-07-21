@@ -1,3 +1,5 @@
+'use client';
+
 import { Transition, Dialog } from '@headlessui/react';
 import { ComponentProps, Fragment } from 'react';
 import useModalContext from 'src/hooks/useModalContext';
@@ -41,8 +43,8 @@ export default function Modal({ title, children }: ModalProps) {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                                <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
+                            <Dialog.Panel className="p-5 transform overflow-hidden rounded bg-dark-200 border border-dark-100 text-left align-middle transition-all">
+                                <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-powder-500">
                                     {title}
                                 </Dialog.Title>
                                 <div className="mt-5">{children}</div>
