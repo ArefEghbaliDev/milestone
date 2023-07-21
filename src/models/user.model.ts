@@ -1,5 +1,6 @@
 interface BaseUser {
-    fullname: string;
+    firstname: string;
+    lastname: string;
     avatar: string | null;
     email: string;
     account_type: string;

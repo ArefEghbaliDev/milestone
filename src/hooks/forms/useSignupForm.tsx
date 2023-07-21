@@ -1,35 +1,18 @@
-import { useMutation } from '@tanstack/react-query';
+import { useSignUp } from '@clerk/nextjs';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
-import { toast } from 'react-toastify';
-import { signupUserMutation } from 'src/lib/react-query/mutations/auth.mut';
+import { useState } from 'react';
 import { signupValidation } from 'src/lib/validators/forms.validator';
 import { UserSignup } from 'src/models/user.model';
 
 export default function useSignupForm() {
-    const router = useRouter();
-
-    const { isLoading, mutateAsync } = useMutation(signupUserMutation, {
-        onError: (error: any) => {
-            if (error.response.data) {
-                toast(error.response.data.message, {
-                    type: 'error',
-                    position: 'top-center',
-                });
-            } else {
-                toast(error, {
-                    type: 'error',
-                    position: 'top-center',
-                });
-            }
-        },
-        onSuccess: () => {
-            router.replace('/confirmation');
-        },
-    });
+    const { isLoaded, signUp, setActive } = useSignUp();
+    const [step, setStep] = useState<'idle' | 'confirm'>('idle');
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const initializeValues: UserSignup = {
-        fullname: '',
+        firstname: '',
+        lastname: '',
         email: '',
         password: '',
         account_type: 'trial',
@@ -40,7 +23,26 @@ export default function useSignupForm() {
         initialValues: initializeValues,
         validationSchema: signupValidation,
         onSubmit: async (values) => {
-            await mutateAsync(values);
+            setIsLoading(true);
+            if (!isLoaded) return;
+
+            try {
+                await signUp.create({
+                    firstName: values.firstname,
+                    lastName: values.lastname,
+                    emailAddress: values.email,
+                    password: values.password,
+                });
+
+                await signUp.prepareEmailAddressVerification({ strategy: 'email_code' });
+
+                setStep('confirm');
+                localStorage.setItem('isConfirm', 'true');
+                setIsLoading(false);
+            } catch (error) {
+                console.log(error);
+                setIsLoading(false);
+            }
         },
         validateOnChange: false,
     });
@@ -48,5 +50,7 @@ export default function useSignupForm() {
     return {
         formik,
         isLoading,
+        step,
+        setActive,
     };
 }

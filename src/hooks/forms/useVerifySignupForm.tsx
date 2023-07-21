@@ -1,0 +1,43 @@
+import { useSignUp } from '@clerk/nextjs';
+import { useFormik } from 'formik';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { signupVerifyValidation } from 'src/lib/validators/forms.validator';
+
+export default function useVerifySignupForm() {
+    const { signUp, setActive, isLoaded } = useSignUp();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const router = useRouter();
+
+    const verifyFormik = useFormik({
+        initialValues: {
+            code: '',
+        },
+        validationSchema: signupVerifyValidation,
+        onSubmit: async (values) => {
+            if (!isLoaded) return;
+            setIsLoading(true);
+
+            const completed = await signUp.attemptEmailAddressVerification({
+                code: values.code,
+            });
+
+            if (completed.status !== 'complete') {
+                // TODO
+                // show error alert
+                setIsLoading(false);
+            } else {
+                await setActive({ session: completed.createdSessionId });
+
+                setIsLoading(false);
+                localStorage.removeItem('isConfirm');
+                router.replace('/projects');
+            }
+        },
+    });
+
+    return {
+        verifyFormik,
+        isLoading,
+    };
+}

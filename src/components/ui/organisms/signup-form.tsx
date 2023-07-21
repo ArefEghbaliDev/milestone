@@ -3,9 +3,46 @@
 import TextField from '../atoms/textfield';
 import Button from '../atoms/button';
 import useSignupForm from 'src/hooks/forms/useSignupForm';
+import useVerifySignupForm from 'src/hooks/forms/useVerifySignupForm';
+import { useRef } from 'react';
 
 export default function SignupForm() {
-    const { formik, isLoading } = useSignupForm();
+    const { formik, isLoading, step } = useSignupForm();
+    const verifyForm = useVerifySignupForm();
+
+    const isInConfirm = useRef(localStorage.getItem('isConfirm'));
+
+    if (step === 'confirm' || isInConfirm.current) {
+        return (
+            <div className="flex flex-col items-stretch justify-start auth-form">
+                <h1 className="font-bold text-2xl">Verification Code Sent</h1>
+                <p>We sent an verification code to your email</p>
+                <div className="mt-5">
+                    <TextField
+                        name="code"
+                        placeholder="123456"
+                        label="Verification Code"
+                        type="text"
+                        onChange={verifyForm.verifyFormik.handleChange}
+                        value={verifyForm.verifyFormik.values.code}
+                        error={verifyForm.verifyFormik.errors.code}
+                    />
+                </div>
+                <div className="mt-5">
+                    <Button
+                        type="button"
+                        onClick={verifyForm.verifyFormik.submitForm}
+                        variant="contained"
+                        color="primary"
+                        className="w-full"
+                        isLoading={verifyForm.isLoading}
+                    >
+                        Verify
+                    </Button>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="flex flex-col items-stretch justify-start auth-form">
@@ -21,12 +58,23 @@ export default function SignupForm() {
             <div className="mt-5">
                 <TextField
                     type="text"
-                    name="fullname"
-                    placeholder="Full Name"
-                    label="Full Name"
-                    value={formik.values.fullname}
+                    name="firstname"
+                    placeholder="First Name"
+                    label="First Name"
+                    value={formik.values.firstname}
                     onChange={formik.handleChange}
-                    error={formik.errors.fullname}
+                    error={formik.errors.firstname}
+                />
+            </div>
+            <div className="mt-5">
+                <TextField
+                    type="text"
+                    name="lastname"
+                    placeholder="Last Name"
+                    label="Last Name"
+                    value={formik.values.lastname}
+                    onChange={formik.handleChange}
+                    error={formik.errors.lastname}
                 />
             </div>
             <div className="mt-5">
