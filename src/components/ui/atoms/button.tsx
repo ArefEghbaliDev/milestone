@@ -29,7 +29,7 @@ export default function Button({ type, onClick, disabled, className, isLoading, 
         text: {
             primary: 'bg-transparent text-primary-500 hover:bg-primary-500 hover:text-white-500',
             secondary: 'bg-transparent text-secondary-500 hover:bg-secondary-500 hover:text-white-500',
-            default: 'bg-transparent text-dark-500 hover:bg-gray-400 hover:text-dark-500',
+            default: 'bg-transparent text-powder-500 hover:bg-gray-400 hover:text-dark-500',
             warning: 'bg-transparent text-amber-500 hover:bg-amber-500 hover:text-dark-500',
             danger: 'bg-transparent text-rose-500 hover:bg-rose-500 hover:text-dark-500',
         },

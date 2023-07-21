@@ -8,7 +8,7 @@ type TTextfieldProps = ComponentProps<'input'> & {
 
 export default function TextField({ name, value, onChange, placeholder, label, error, type }: TTextfieldProps) {
     return (
-        <div className="flex flex-col items-start justify-start">
+        <div className="flex flex-col items-start justify-start textfield">
             {label && <label className="font-medium text-sm mb-1">{label}</label>}
             <div
                 className={clsx(
