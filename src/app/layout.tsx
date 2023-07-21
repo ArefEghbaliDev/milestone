@@ -1,3 +1,4 @@
+import { ClerkProvider } from '@clerk/nextjs';
 import Providers from 'src/components/providers';
 import 'src/styles/main.scss';
 
@@ -15,7 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
             </head>
             <body>
-                <Providers>{children}</Providers>
+                <ClerkProvider>
+                    <Providers>{children}</Providers>
+                </ClerkProvider>
             </body>
         </html>
     );
