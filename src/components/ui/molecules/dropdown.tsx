@@ -19,7 +19,7 @@ export default function Dropdown({ children, snapPosition = 'right' }: DropdownP
                 return null;
             })}
             <Menu.Items
-                className={clsx('absolute top-full p-3 mt-2 rounded bg-dark-200 border border-dark-100 min-w-max', {
+                className={clsx('absolute top-full p-3 mt-2 rounded bg-dark-300 border border-dark-100 min-w-max', {
                     'left-0': snapPosition === 'left',
                     'right-0': snapPosition === 'right',
                 })}

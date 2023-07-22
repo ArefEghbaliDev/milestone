@@ -29,7 +29,7 @@ export default function Modal({ title, children }: ModalProps) {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <div className="fixed inset-0 bg-powder-500 bg-opacity-5" />
+                    <div className="fixed inset-0 bg-dark-500 bg-opacity-5 backdrop-blur-sm" />
                 </Transition.Child>
 
                 <div className="fixed inset-0 overflow-y-auto">
@@ -43,7 +43,7 @@ export default function Modal({ title, children }: ModalProps) {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="p-5 transform overflow-hidden rounded bg-dark-200 border border-dark-100 text-left align-middle transition-all">
+                            <Dialog.Panel className="p-5 transform overflow-hidden rounded bg-dark-300 border border-dark-100 text-left align-middle transition-all">
                                 <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-powder-500">
                                     {title}
                                 </Dialog.Title>
