@@ -3,11 +3,38 @@ import { NextRequest,NextResponse } from "next/server";
 import { Project,ProjectCreate } from "src/models/project.model";
 import { PrismaClient } from '@prisma/client'
 
+export const GET = async (request: NextRequest): Promise<NextResponse> => {
+    const { userId } = getAuth(request);
+    const prisma = new PrismaClient()
+
+    console.log("USER ID",userId);
+
+    if (!userId) {
+        return NextResponse.json({
+            success: false,
+            message: "UnAuthorized Access"
+        },{ status: 403 })
+    }
+
+    try {
+        const projects = await prisma.project.findMany({ where: { creator_id: userId } });
+
+        return NextResponse.json({
+            success: true,
+            data: projects
+        })
+    }
+    catch (err) {
+        return NextResponse.json({
+            success: false,
+            message: "Internal Error"
+        },{ status: 400 })
+    }
+}
+
 export const POST = async (request: NextRequest): Promise<NextResponse> => {
     const { userId } = getAuth(request);
     const body: ProjectCreate = await request.json();
-
-    console.log("body",body);
 
     if (!userId) {
         return NextResponse.json({
