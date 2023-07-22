@@ -8,7 +8,7 @@ import { useRef } from 'react';
 
 export default function SignupForm() {
     const { formik, isLoading, step } = useSignupForm();
-    const verifyForm = useVerifySignupForm();
+    const verifyForm = useVerifySignupForm({ data: formik.values });
 
     const isInConfirm = useRef(localStorage.getItem('isConfirm'));
 

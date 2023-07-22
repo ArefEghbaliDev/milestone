@@ -19,3 +19,9 @@ export interface User extends BaseUser {
     id: string;
     created_at: string;
 }
+
+export interface UserCreate {
+    id: string;
+    email: string;
+    account_type: string;
+}
