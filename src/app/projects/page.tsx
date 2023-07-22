@@ -1,10 +1,13 @@
 'use client';
 
+import { useQuery } from '@tanstack/react-query';
 import Button from 'src/components/ui/atoms/button';
 import Navbar from 'src/components/ui/molecules/navbar';
 import useOpenModal from 'src/hooks/useOpenModal';
+import { fetchProjects } from 'src/lib/react-query/queries/project.query';
 
 export default function ProjectsPage() {
+    const { data } = useQuery(['projects'], fetchProjects);
     const { openModal } = useOpenModal('create-project');
 
     return (
