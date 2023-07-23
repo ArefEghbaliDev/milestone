@@ -18,3 +18,9 @@ export const fetchProjects = async () => {
 
     return mappedResult;
 }
+
+export const fetchCurrentProject = async (projectKey: string) => {
+    const res = await axiosClient.get("/project/" + projectKey);
+
+    return res.data.data;
+}
