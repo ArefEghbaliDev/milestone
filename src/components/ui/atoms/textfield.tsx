@@ -9,7 +9,7 @@ type TTextfieldProps = ComponentProps<'input'> & {
 export default function TextField({ name, value, onChange, placeholder, label, error, type }: TTextfieldProps) {
     return (
         <div className="flex flex-col items-start justify-start textfield">
-            {label && <label className="font-medium text-sm mb-1">{label}</label>}
+            {label && <label className="font-medium mb-1">{label}</label>}
             <div
                 className={clsx('flex items-center justify-between w-full bg-dark-100 rounded border transition-all duration-150', {
                     'border-rose-500': error,
@@ -22,10 +22,10 @@ export default function TextField({ name, value, onChange, placeholder, label, e
                     name={name}
                     value={value}
                     onChange={onChange}
-                    className="flex-1 rounded px-5 py-[10px] outline-none focus:outline-none text-sm bg-transparent"
+                    className="flex-1 rounded px-5 py-[10px] outline-none focus:outline-none  bg-transparent"
                 />
             </div>
-            {error && <span className="mt-1 text-sm text-rose-500">{error}</span>}
+            {error && <span className="mt-1  text-rose-500">{error}</span>}
         </div>
     );
 }

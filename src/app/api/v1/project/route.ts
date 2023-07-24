@@ -7,8 +7,6 @@ export const GET = async (request: NextRequest): Promise<NextResponse> => {
     const { userId } = getAuth(request);
     const prisma = new PrismaClient()
 
-    console.log("USER ID",userId);
-
     if (!userId) {
         return NextResponse.json({
             success: false,

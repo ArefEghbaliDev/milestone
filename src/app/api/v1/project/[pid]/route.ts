@@ -1,4 +1,4 @@
-import { getAuth } from "@clerk/nextjs/dist/types/server-helpers.server";
+import { getAuth } from "@clerk/nextjs/server";
 import { PrismaClient } from "@prisma/client";
 import { NextRequest,NextResponse } from "next/server";
 import { Project } from "src/models/project.model";

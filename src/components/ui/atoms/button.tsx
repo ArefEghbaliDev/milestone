@@ -43,7 +43,7 @@ export default function Button({ type, onClick, disabled, className, isLoading, 
         icon: {
             primary: 'bg-primary-500 text-powder-500 hover:bg-primary-700',
             secondary: 'bg-secondary-500 text-dark-500 hover:bg-secondary-700',
-            default: 'bg-gray-200 text-dark-500 hover:bg-gray-400',
+            default: 'bg-transparent text-powder-500 hover:bg-dark-100',
             warning: 'bg-amber-500 text-dark-500 hover:bg-amber-700',
             danger: 'bg-rose-500 text-dark-500 hover:bg-rose-700',
         },
@@ -54,9 +54,9 @@ export default function Button({ type, onClick, disabled, className, isLoading, 
             type={type}
             disabled={disabled || isLoading}
             onClick={onClick}
-            className={clsx('flex items-center justify-center text-sm rounded transition-colors duration-150', className, variants[variant][color], {
+            className={clsx('flex items-center justify-center rounded transition-colors duration-150', className, variants[variant][color], {
                 'px-[16px] py-[10px]': variant !== 'icon',
-                'p-3': variant === 'icon',
+                'p-2': variant === 'icon',
                 border: variant === 'outline',
             })}
         >

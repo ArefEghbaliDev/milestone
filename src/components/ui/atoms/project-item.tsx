@@ -12,7 +12,7 @@ export default function ProjectItem({ project }: ProjectItemProps) {
             className="rounded p-5 border border-dark-100 transition-colors duration-150 hover:bg-dark-100"
         >
             <p className="font-medium">{project.title}</p>
-            <p className="text-sm">{project.project_key}</p>
+            <p>{project.project_key}</p>
         </Link>
     );
 }

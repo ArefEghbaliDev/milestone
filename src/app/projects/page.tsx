@@ -4,7 +4,7 @@ import { Project } from 'src/models/project.model';
 import { useQuery } from '@tanstack/react-query';
 import Button from 'src/components/ui/atoms/button';
 import Navbar from 'src/components/ui/molecules/navbar';
-import ProjectItem from 'src/components/ui/molecules/project-item';
+import ProjectItem from 'src/components/ui/atoms/project-item';
 import useOpenModal from 'src/hooks/useOpenModal';
 import { fetchProjects } from 'src/lib/react-query/queries/project.query';
 

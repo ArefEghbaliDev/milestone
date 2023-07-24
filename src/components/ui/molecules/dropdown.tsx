@@ -40,7 +40,7 @@ Dropdown.Button = DropdownButton;
 Dropdown.Item = DropdownItem;
 
 function DropdownButton({ children, className }: ComponentProps<'button'>) {
-    return <Menu.Button className={clsx('flex items-center justify-center', className)}>{children}</Menu.Button>;
+    return <Menu.Button className={clsx('flex items-center justify-center ', className)}>{children}</Menu.Button>;
 }
 
 function DropdownItem({ children, disabled, onClick, className }: ComponentProps<'button'>) {
@@ -49,7 +49,7 @@ function DropdownItem({ children, disabled, onClick, className }: ComponentProps
             disabled={disabled}
             as="button"
             onClick={onClick}
-            className={clsx('flex items-center justify-start w-full px-3 py-2 mt-2 rounded text-sm hover:bg-dark-100', className)}
+            className={clsx('flex items-center justify-start w-full px-3 py-2 mt-2 rounded  hover:bg-dark-100', className)}
         >
             {children}
         </Menu.Item>

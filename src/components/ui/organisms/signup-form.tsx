@@ -53,7 +53,7 @@ export default function SignupForm() {
                 </Button>
             </div>
             <div className="mt-5">
-                <p className="text-sm opacity-50 text-center">OR</p>
+                <p className=" opacity-50 text-center">OR</p>
             </div>
             <div className="mt-5">
                 <TextField
