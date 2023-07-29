@@ -6,7 +6,7 @@ export default function ProjectTemplate({ children }: ComponentProps<'div'>) {
     return (
         <div className="flex items-start justify-between h-screen">
             <Sidebar />
-            <div className="flex flex-col items-stretch justify-start py-5 px-10 h-full flex-1">
+            <div className="grid grid-cols-1 project-template-grid py-5 px-10 h-full flex-1">
                 <ProjectNavbar />
                 {children}
             </div>

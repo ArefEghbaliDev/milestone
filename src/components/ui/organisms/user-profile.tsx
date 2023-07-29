@@ -22,8 +22,8 @@ export default function UserProfile() {
         <Dropdown>
             <Dropdown.Button>
                 <div className="flex items-center justify-center">
+                    <p className="text-powder-500 mr-2">{`${user.firstName} ${user.lastName}`}</p>
                     <Avatar avatar={user.imageUrl} displayName={user.firstName!} />
-                    <p className="text-powder-500 ml-2">{`${user.firstName} ${user.lastName}`}</p>
                 </div>
             </Dropdown.Button>
             <Dropdown.Item>
